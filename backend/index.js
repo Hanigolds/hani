@@ -55,11 +55,11 @@ app.use("/api/silver", silverRoute);
 app.use("/api/gold", goldRoute);
 
 // todo for live server checking
-app.get("/", (req, res) => [res.send("<h1>listening the port server is runing</h1>")]);
+app.get("/", (req, res) => {res.send("<h1>listening the port server is runing</h1>")});
 
 // ? port is listening
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, (req, res) => {
-  console.log("server is running");
+  console.log("server is running and successful");
 });
