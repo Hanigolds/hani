@@ -15,8 +15,8 @@ const goldRoute = require("./routes/goldRoute");
 dotenv.config();
 app.use(express.json());
 app.use(cors({
-  origin: '*', // Allow all origins (adjust to specific origin for security)
-  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'], // Allowed methods
+  origin: ['http://hanigolds.shop', 'https://hanigolds.shop', 'http://api.hanigolds.shop', 'https://api.hanigolds.shop',"*"], // Allow both HTTP and HTTPS for both domain and subdomain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
 
@@ -55,7 +55,7 @@ app.use("/api/silver", silverRoute);
 app.use("/api/gold", goldRoute);
 
 // todo for live server checking
-app.get("/", (req, res) => {res.send("<h1>listening the port server is runing</h1>")});
+app.get("/", (req, res) => {res.send("<h1>listening the port server is runing at 8000 after /</h1>")});
 
 // ? port is listening
 const PORT = process.env.PORT || 8000;
